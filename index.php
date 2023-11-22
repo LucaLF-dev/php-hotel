@@ -79,11 +79,9 @@ $hotels = [
            <td>
             <?php  if ($hotel['parking'] == true) {
                     echo 'SI';
-                } else 
-                {
-                    echo 'NO'
-                }; ?>
-
+                } else {
+                    echo 'NO';
+                } ?>
                 </td>
            <td><?php echo $hotel['vote'] ?></td>
            <td><?php echo $hotel['distance_to_center'] . 'km' ?> </td>
@@ -95,7 +93,7 @@ $hotels = [
 
 </div>
 
-<ul>
+<!-- <ul>
     <?php foreach ($hotels as $hotel) { ?>
         <li>
             <?php 
@@ -108,7 +106,7 @@ $hotels = [
         </li>
     <?php } ?>
    
-</ul>
+</ul> -->
 
 
     
