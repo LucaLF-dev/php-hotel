@@ -93,20 +93,7 @@ $hotels = [
 
 </div>
 
-<!-- <ul>
-    <?php foreach ($hotels as $hotel) { ?>
-        <li>
-            <?php 
-                if ($hotel['vote'] > 2) {
-                    echo 'top ' . $hotel['name'];
-                } else {
-                    echo 'nope ' . $hotel['name'];
-                }
-            ?>
-        </li>
-    <?php } ?>
-   
-</ul> -->
+
 
 
     
