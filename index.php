@@ -2,6 +2,10 @@
 
 $page_title = 'PHP Hotel';
 
+$has_parking = isset($_GET['has_parking']) ? true : false;
+
+var_dump($has_parking);
+
 $hotels = [
 
     [
@@ -56,7 +60,7 @@ $hotels = [
 </head>
 <body>
 
-<div class="container ">
+<div class="container-xl  mx-auto mt-4 border rounded">
 
 <table class="table">
   <thead>
@@ -70,30 +74,38 @@ $hotels = [
     </tr>
   </thead>
   <tbody>
-   
-    <?php foreach ($hotels as $hotel) { ?>
-         <tr>
-          
-           <td> <?php echo $hotel['name'] ?></td>
-           <td><?php echo $hotel['description'] ?></td>
-           <td>
-            <?php  if ($hotel['parking'] == true) {
-                    echo 'SI';
-                } else {
-                    echo 'NO';
-                } ?>
-                </td>
-           <td><?php echo $hotel['vote'] ?></td>
-           <td><?php echo $hotel['distance_to_center'] . 'km' ?> </td>
-         </tr>
-    <?php }; ?>
+  <?php
+      foreach ($hotels as $hotel) {
+
+        if ($hotel['parking'] === $has_parking || !$has_parking) {
+      ?>
+          <tr>
+            <td><?php echo $hotel['name']; ?></td>
+            <td><?= $hotel['description']; ?></td>
+            <td><?= $hotel['parking'] ? 'SI' : 'NO'; ?></td>
+            <td><?php echo $hotel['vote'] ?></td>
+            <td><?php echo $hotel['distance_to_center'] ?> km</td>
+          </tr>
+      <?php
+        }
+      }
+      ?>
 
   </tbody>
 </table>
 
 </div>
 
+<div class="container-xl  mx-auto mt-4 border rounded">
 
+<form action="" method="GET">
+      <input id="has_parking" <?php echo $has_parking ? 'checked' : ''; ?> type="checkbox" name="has_parking">
+      <label for="has_parking">Visualizza solo Hotel con il parcheggio ?</label>
+      <input type="submit" value="filtra">
+    </form>
+
+
+</div>
 
 
     
